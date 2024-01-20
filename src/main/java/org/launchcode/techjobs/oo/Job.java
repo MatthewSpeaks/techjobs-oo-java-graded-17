@@ -46,6 +46,30 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+    public String isValidInput(String aString){
+        if (aString.isEmpty()) {
+            return "Data not available";
+        } else {
+            return aString;
+        }
+    }
+
+    @Override
+    public String toString() {
+        if ((name == null) || (employer == null) || (location == null) || (positionType == null) || (coreCompetency == null)) {
+            return "OOPS! This job does not seem to exist.";
+        } else {
+            return System.lineSeparator() +
+                    "ID: " + id + System.lineSeparator() +
+                    "Name: " + isValidInput(name) + System.lineSeparator() +
+                    "Employer: " + isValidInput(employer.getValue()) + System.lineSeparator() +
+                    "Location: " + isValidInput(location.getValue()) + System.lineSeparator() +
+                    "Position Type: " + isValidInput(positionType.getValue()) + System.lineSeparator() +
+                    "Core Competency: " + isValidInput(coreCompetency.getValue()) +
+                    System.lineSeparator();
+        }
+    }
+
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
